@@ -1,5 +1,11 @@
 import { FC } from 'react'
-import { SquareProps } from '../types'
+import { SquareValue } from '../types'
+
+interface SquareProps {
+  value: SquareValue
+  isWinner: boolean
+  onSquareClick: () => void
+}
 
 const Square: FC<SquareProps> = ({ value, isWinner, onSquareClick }) => {
   return (

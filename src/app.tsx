@@ -1,7 +1,10 @@
 import { FC } from 'react'
-import { AppProps } from './types'
 import Game from './components/game'
 import './app.css'
+
+interface AppProps {
+  title: string
+}
 
 const App: FC<AppProps> = ({ title }) => {
   return (

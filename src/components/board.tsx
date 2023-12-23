@@ -1,7 +1,13 @@
 import { FC } from 'react'
-import { BoardProps } from '../types'
+import { SquareValue } from '../types'
 import { calculateWinner } from '../utils'
 import Square from './square'
+
+interface BoardProps {
+  squares: SquareValue[]
+  xIsNext: boolean
+  onPlay: (squares: SquareValue[]) => void
+}
 
 const Board: FC<BoardProps> = ({ squares, xIsNext, onPlay }) => {
   const winner = calculateWinner(squares)
@@ -37,7 +43,7 @@ const Board: FC<BoardProps> = ({ squares, xIsNext, onPlay }) => {
           <div key={row} className="board-row">
             {[0, 1, 2].map((col) => {
               const idx = 3 * row + col
-              const isWinner = winner ? winner.line.includes(idx) : false
+              const isWinner = !!winner && winner.line.includes(idx)
               return <Square key={idx} value={squares[idx]} isWinner={isWinner} onSquareClick={() => handleClick(idx)} />
             })}
           </div>

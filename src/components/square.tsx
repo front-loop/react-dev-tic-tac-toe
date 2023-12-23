@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { SquareProps } from '../types'
 
-const Square: FC<SquareProps> = ({ value, onSquareClick }) => {
+const Square: FC<SquareProps> = ({ value, isWinner, onSquareClick }) => {
   return (
-    <button className="square" onClick={onSquareClick}>
+    <button className={`square ${isWinner && 'winner'}`} onClick={onSquareClick}>
       {value}
     </button>
   )

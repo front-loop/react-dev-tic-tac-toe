@@ -8,7 +8,7 @@ const Board: FC<BoardProps> = ({ squares, xIsNext, onPlay }) => {
   let status
 
   if (winner) {
-    status = 'Winner: ' + winner
+    status = 'Winner: ' + winner.square
   } else if (squares.every(Boolean)) {
     status = 'Draw'
   } else {
@@ -37,7 +37,8 @@ const Board: FC<BoardProps> = ({ squares, xIsNext, onPlay }) => {
           <div key={row} className="board-row">
             {[0, 1, 2].map((col) => {
               const idx = 3 * row + col
-              return <Square key={idx} value={squares[idx]} onSquareClick={() => handleClick(idx)} />
+              const isWinner = winner ? winner.line.includes(idx) : false
+              return <Square key={idx} value={squares[idx]} isWinner={isWinner} onSquareClick={() => handleClick(idx)} />
             })}
           </div>
         )

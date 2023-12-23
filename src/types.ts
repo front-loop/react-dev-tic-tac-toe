@@ -1,5 +1,10 @@
 export type SquareValue = string | null
 
+export type WinningSquareValue = {
+  square: SquareValue
+  line: number[]
+}
+
 export interface BoardProps {
   squares: SquareValue[]
   xIsNext: boolean
@@ -8,6 +13,7 @@ export interface BoardProps {
 
 export interface SquareProps {
   value: SquareValue
+  isWinner: boolean
   onSquareClick: () => void
 }
 

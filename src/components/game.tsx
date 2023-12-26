@@ -18,7 +18,9 @@ const Game: FC = () => {
 
     return (
       <li key={idx}>
-        <button onClick={() => jumpTo(idx)}>{description}</button>
+        <button className="game-move" onClick={() => jumpTo(idx)}>
+          {description}
+        </button>
       </li>
     )
   })

@@ -9,7 +9,7 @@ interface SquareProps {
 
 const Square: FC<SquareProps> = ({ value, isWinner, onSquareClick }) => {
   return (
-    <button className={`square ${isWinner && 'winner'}`} onClick={onSquareClick}>
+    <button className={`square ${isWinner ? 'winner' : ''}`} onClick={onSquareClick}>
       {value}
     </button>
   )

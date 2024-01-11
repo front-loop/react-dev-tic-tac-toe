@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import { SquareValue } from '../types'
 import { calculateWinner } from '../utils'
 import Square from './square'
@@ -9,7 +8,7 @@ interface BoardProps {
   onPlay: (squares: SquareValue[]) => void
 }
 
-const Board: FC<BoardProps> = ({ squares, xIsNext, onPlay }) => {
+const Board = ({ squares, xIsNext, onPlay }: BoardProps) => {
   const winner = calculateWinner(squares)
   let status
 

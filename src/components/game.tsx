@@ -1,8 +1,8 @@
-import { FC, useState } from 'react'
+import { useState } from 'react'
 import { SquareValue } from '../types'
 import Board from './board'
 
-const Game: FC = () => {
+const Game = () => {
   const [history, setHistory] = useState<SquareValue[][]>([Array(9).fill(null)])
   const [currentMove, setCurrentMove] = useState(0)
   const xIsNext = currentMove % 2 === 0
